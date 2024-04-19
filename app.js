@@ -5,7 +5,7 @@ require('dotenv').config()
 const mongoose=require('mongoose');
 const router=require('./routes/routes')
 const port= process.env.PORT;
-const url='mongodb+srv://Yogesh:AibLMBEaBfcMsmtV@nasaztm.k3s2g.mongodb.net/crud_api?retryWrites=true&w=majority'
+const url= process.env.URL;
 router.use(express.json());
 const opt={
     origin:'*',
