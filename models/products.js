@@ -3,8 +3,8 @@ class products{
 
     }
 
-    async createProducts(){
-
+    async createProducts(req,res){
+        
     }
 }
 
