@@ -1,6 +1,7 @@
 
 const brandCollection=require("./../collection/brands");
 const categoryCollection=require('./../collection/category')
+const productTypeCollection=require("./../collection/productType")
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose=require('mongoose');
@@ -73,6 +74,23 @@ class miscs{
             console.error('Error fetching brands:', error);
             res.status(500).json({ error: 'Internal server error' });
           }
+    }
+
+    async createProductType(req,res){
+        // try{
+            let data=req.body
+            let params=new productTypeCollection({
+                prodType:data.prodType,
+            })
+            let d=await params.save()
+          
+            if(d){
+                res.status(200).json({message:'type created',d})
+            }
+        // }
+        // catch(error){
+        //     res.status(444).json({message:'JSON error'})
+        // }
     }
 }
 
