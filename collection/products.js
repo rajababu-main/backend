@@ -2,9 +2,9 @@ const mongoose =require('mongoose');
 const ObjectId=mongoose.Types.ObjectId
 const productSchema=new mongoose.Schema({
     productName:{type:String,default:"",require:true},
-    brand:{type:ObjectId,default:null},//id
+    brand:{type:ObjectId,default:null,ref:"Brands"},//id
     productUID:{type:String,default:"",require:true},
-    productCAtegory:{type:ObjectId,default:null},//id
+    productCategory:{type:ObjectId,default:null,ref:'Categories'},//id
     seller:{type:ObjectId,default:null},//id
     addedBy:{type:String,default:'admin'},  //either admin or seller if its added by seller then sellerId should be included
     totalUnits:{type:String,default:"",require:true},
@@ -13,6 +13,7 @@ const productSchema=new mongoose.Schema({
         expiry:Date,
         productDescriptions:{type:String,default:"",require:true},
     },
+    productType:{type:ObjectId,default:null,ref:'ProdType'},
     price:{type:Number,default:0,require:true},
     discount:{type:Number,default:0,require:true}, //this will treates as %
     shippingDetails:{type:String,default:"",require:true},

@@ -61,8 +61,18 @@ class miscs{
             res.status(500).json({ error: 'Internal server error' });
           }
     }
-    async getCategories(){
-
+    async getCategories(req,res){
+        try {
+            // Fetch all brands
+            const cat = await categoryCollection.find({});
+        
+            // Send response with the fetched brands
+            res.json(cat);
+          } catch (error) {
+            // Handle errors
+            console.error('Error fetching brands:', error);
+            res.status(500).json({ error: 'Internal server error' });
+          }
     }
 }
 

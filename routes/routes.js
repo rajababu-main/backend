@@ -39,4 +39,7 @@ router.get('/admin/getCategories',async(req,res)=>{
     await getCategories(req,res)
 })
 
+//----------------------------------------user--------------------------------------
+//kart
+
 module.exports=router;
